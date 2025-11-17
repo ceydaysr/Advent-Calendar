@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1bed2;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    border: 8px solid #999;
+     border-radius: 8px;
+    
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.box {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(71, 3, 62);
+    border: 2px solid #999;
+    border-radius: 8px;
+    box-shadow: 5px 5px 7px rgba(88, 3, 61, 0.2);
+}
+
+.box.locked {
+    background-color: #8B0000;
+    cursor: not-allowed;
+}
+
+.box.openable {
+    background-color: #ec9beb;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.box.openable:hover {
+    transform: scale(1.40);
+}
+
+/* --- YENİ EKLENEN MODAL STİLLERİ (Overlaysiz) --- */
+
+.modal-box {
+    /* Başlangıçta gizli */
+    display: none; 
+    
+    position: fixed; 
+    
+    
+    top: 50%;
+    
+    margin-left: auto;
+    margin-right: auto;
+   
+    /* Görünüm stilleri */
+    background-color: rgb(255, 156, 192);
+    padding: 25px;
+    border-radius: 10px;
+    
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); 
+    position: relative; /* Kapatma düğmesi için */
+    max-width: 250px;
+    max-height: 300px;
+    text-align: center;
+    z-index: 1000; /* Diğer her şeyin (kutuların) üstünde olsun */
+}
+
+/* JavaScript bu sınıfı eklediğinde modal görünür olacak */
+.modal-box.active {
+    display: block; /* 'none' olan display'i 'block' yaparak görünür yap */
+}
+
+/* Modal içindeki resim */
+#modal-image-src {
+    max-width: 200px; 
+    max-height: 200px;
+    height: auto;
+    margin-top: 5px;
+    margin-right: auto;
+}
+
+/* Kapatma Düğmesi (X) */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #000;
+}

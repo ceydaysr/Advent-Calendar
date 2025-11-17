@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Advent Calendar</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+    <h1>RECO CALENDAR</h1>
+    <p class="explanation">
+       Reco Calendar ile her güne bir Recep İvedik ve dahası... 
+
+    </p>
+    <p class="explanation">
+        Sevdiklerinize göndererek mutlu olmalarını sağlayabilirsiniz :)
+    </p>
+
+
+
+
+
+    <!-- ⭐ MODAL EN ÜSTE KOYULDU -->
+    <div id="image-modal-content" class="modal-box">
+        <span class="modal-close" id="modal-close-btn">&times;</span>
+        <h3 id="modal-day-text"></h3>
+        <img src="" alt="Günün Sürprizi" id="modal-image-src">
+    </div>
+
+    <div class="calendar-grid">
+        <% for (let i = 1; i <= toplamGun; i++) { %>
+            
+            <% if (i <= acilabilirGunSayisi) { %>
+                <div class="box openable" data-day="<%= i %>">
+                    <%= i %>
+                </div>
+            <% } else { %>
+                <div class="box locked">
+                    <%= i %>
+                </div>
+            <% } %>
+
+        <% } %>
+    </div>
+
+    <!-- ⭐ main.js SADECE 1 KEZ -->
+    <script src="/js/main.js"></script>
+
+</body>
+</html>
